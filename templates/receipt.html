@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+    <!-- Add necessary CSS for table styling -->
+    <style>
+        /* Add your table styles here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        /* Add other styles as needed */
+    </style>
+</head>
+<body>
+    <div id="pdfContent"> <!-- Add the ID 'pdfContent' to the enclosing div -->
+        <h1>Receipt</h1>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            {% for key, value in data.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Add a button to print this page as PDF -->
+    <button onclick="generatePDF()">Download as PDF</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+    <script>
+        function generatePDF() {
+            // Get the element containing the content to convert
+            const element = document.getElementById('pdfContent');
+
+            // Options for PDF generation (optional)
+            const options = {
+                margin: 10,
+                filename: 'receipt.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Use html2pdf to generate and download the PDF
+            html2pdf().from(element).set(options).save();
+        }
+    </script>
+</body>
+</html>

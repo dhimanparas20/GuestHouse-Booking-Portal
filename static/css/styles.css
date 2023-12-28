@@ -1,0 +1,17 @@
+body{
+    background-color: #1a1a1a; /* Replace with your preferred dark color */
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #body {
+    background-color: #1a1a1a; /* Replace with your preferred dark color */
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  }

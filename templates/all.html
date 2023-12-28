@@ -1,0 +1,37 @@
+{%extends "base.html" %}
+{%block title%}All List{%endblock%}
+{%block body%} 
+    <center><h2>All Payments List</h2></center>
+    <button type="button" class="btn btn-warning" id="backButton">Back</button>
+    <br><br>
+    <table style="width:100%">
+        <tr>
+            <th>Sr.NO</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>From</th>
+            <th>To</th>
+            <th>orderid</th>
+            <th>PaymentID</th>
+        </tr>
+        {% for item in data|reverse %} 
+            <tr>
+                <td>{{item['name']}}</td>
+                <td>{{item['contact']}}</td>
+                <td>{{item['email']}}</td>
+                <td>{{item['amount']}}</td>
+                <td class="onlineStatus">{{item['status']}}</td>
+                <td>{{item['from']}}</td>
+                <td>{{item['to']}}</td>
+                <td>{{item['orderid']}}</td>
+                <td>{{item['paymentid']}}</td>
+            </tr>
+        {% endfor %}
+    </table>    
+
+    <!-- Include the script.js file -->
+    <script src="/static/js/show.js/"></script>
+{%endblock%}    

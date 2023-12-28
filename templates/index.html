@@ -1,0 +1,41 @@
+{%extends "base.html" %}
+{%block title%}Booking{%endblock%}
+{%block body%} 
+
+<div class="container mt-5">
+  <h1>Guest House Booking Form</h1>
+  <form id="bookingForm">
+    <div class="mb-3">
+      <label for="nameInput" class="form-label">Name</label>
+      <input type="text" class="form-control" id="nameInput" required>
+    </div>
+    <div class="mb-3">
+      <label for="phoneInput" class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" id="phoneInput" required>
+    </div>
+    <div class="mb-3">
+      <label for="emailinput" class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="emailinput" required>
+    </div>
+    <div class="mb-3">
+      <label for="arrivalDateInput" class="form-label">Date of Arrival</label>
+      <input type="date" class="form-control" id="arrivalDateInput" required>
+    </div>
+    <div class="mb-3">
+      <label for="departureDateInput" class="form-label">Date of Departure</label>
+      <input type="date" class="form-control" id="departureDateInput" required>
+    </div>
+    <div class="mb-3">
+      <label for="reasonInput" class="form-label">Reason for Stay</label>
+      <textarea class="form-control" id="reasonInput" rows="3" required></textarea>
+    </div>
+    <button type="submit" id="rzp-button2" class="btn btn-primary">Submit</button>
+  </form>
+  <p>Total Amount INR: <span id="amount"></span></p>
+
+</div>
+
+<!-- Your custom script -->
+<script src="/static/js/index.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+{%endblock%}  
